@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZONA | Sector</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Photos/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <!-- Header with Carousel -->
+
+    <header class="header">
+        <nav class="nav-links section">
+            <button class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="respo-disp">
+                <a href="index.html" class="nav-item">
+                    <img src="Photos/icon.png" alt="zona-icon" class="zona-icon primary-img">
+                    <img src="Photos/hovericon.png" alt="zona-icon-hover" class="zona-icon hover-img">
+                </a>
+            </div>
+            <div class="main-links">
+                <a href="index.html" class="nav-item">home</a>
+                <a href="Gallery/Gallery.html" class="nav-item">gallery</a>
+                <a href="Bio/Bio.html" class="nav-item">Bio</a>
+            </div>
+            <div class="icons">
+                <a href="" class="nav-item"><i class="fa-brands fa-instagram"></i></a>
+                <a href="" class="nav-item"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+        </nav>
+
+        <div class="carousel">
+            <div class="slide first-slide"
+                style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Photos/img-carousel.jpeg'); object-fit: cover;">
+            </div>
+            <div class="slide gallery-slide">
+                <div class="gallery-images">
+                    <img src="Photos/sadxarmama.jpeg">
+                    <img src="Photos/gvirabi.jpeg">
+                    <img src="Photos/neo.jpeg">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="flex-box">
+                    <img src="Photos/z.jpeg">
+                    <img src="Photos/o.jpeg">
+                    <img src="Photos/n.jpeg">
+                    <img src="Photos/a.jpeg">
+                </div>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button class="arrow prev">
+                <i class="fa-solid fa-pause"></i>
+            </button>
+
+            <div class="indicators"></div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">home</a>
+            <a href="Gallery/Gallery.html">gallery</a>
+            <a href="Bio/Bio.html">bio</a>
+            <div class="mobile-icons">
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-regular fa-envelope"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- cards section -->
+
+    <div class="h1-mt section">
+        <h1 class="section-title h1tag">ZONA | Sector</h1>
+        <p class="basic-font f-size">A platform for young, independent artists</p>
+    </div>
+
+    <!-- cards section -->
+
+    <section class="zona-showcase section">
+
+        <!-- LEFT LOGO -->
+        <div class="showcase-left">
+            <img src="Photos/zonalogo.jpeg" alt="zona logo" class="big-logo">
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="showcase-right">
+
+            <div class="media-card">
+                <video class="card-video" src="Videos/Video1.mp4" muted loop autoplay playsinline>
+                </video>
+            </div>
+
+            <div class="media-card">
+                <video class="card-video" src="Videos/Video2.mp4" muted loop autoplay playsinline>
+                </video>
+            </div>
+
+            <div class="media-card">
+                <video class="card-video" src="Videos/Video3.mp4" muted loop autoplay playsinline>
+                </video>
+            </div>
+
+            <div class="media-card">
+                <img src="Photos/comingsoon.jpg" alt="Coming Soon">
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="h1-mt">
+        <section class="video-section">
+            <div class="video-wrapper">
+                <video autoplay muted loop playsinline id="bg-video">
+                    <source src="Videos/Main-video.mov" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="video-controls">
+                <button id="playPauseBtn">
+                    <i class="fa-solid fa-pause"></i>
+                </button>
+                <button id="muteBtn">
+                    <i class="fa-solid fa-volume-xmark"></i>
+                </button>
+            </div>
+        </section>
+    </div>
+
+
+    <section class="gallery-section">
+        <h1 class="h1tag section h1-mt">ZONA | GALLERY</h1>
+
+        <div class="wrapper">
+
+            <!-- ROW 1 -->
+            <div class="row">
+                <div class="card"><img src="Photos/img1.jpg" /></div>
+                <div class="card"><img src="Photos/img2.jpg" /></div>
+                <div class="card"><img src="Photos/img3.jpg" /></div>
+                <div class="card"><img src="Photos/img4.jpg" /></div>
+                <div class="card"><img src="Photos/img5.jpg" /></div>
+                <div class="card"><img src="Photos/img6.jpg" /></div>
+
+                <!-- duplicate for loop -->
+                <div class="card"><img src="Photos/img1.jpg" /></div>
+                <div class="card"><img src="Photos/img2.jpg" /></div>
+                <div class="card"><img src="Photos/img3.jpg" /></div>
+                <div class="card"><img src="Photos/img4.jpg" /></div>
+                <div class="card"><img src="Photos/img5.jpg" /></div>
+                <div class="card"><img src="Photos/img6.jpg" /></div>
+            </div>
+
+            <!-- ROW 2 -->
+            <div class="row reverse">
+                <div class="card"><img src="Photos/img7.jpg" /></div>
+                <div class="card"><img src="Photos/img8.jpg" /></div>
+                <div class="card"><img src="Photos/img9.jpg" /></div>
+                <div class="card"><img src="Photos/img10.jpg" /></div>
+                <div class="card"><img src="Photos/img11.jpg" /></div>
+                <div class="card"><img src="Photos/img12.jpg" /></div>
+
+                <div class="card"><img src="Photos/img7.jpg" /></div>
+                <div class="card"><img src="Photos/img8.jpg" /></div>
+                <div class="card"><img src="Photos/img9.jpg" /></div>
+                <div class="card"><img src="Photos/img10.jpg" /></div>
+                <div class="card"><img src="Photos/img11.jpg" /></div>
+                <div class="card"><img src="Photos/img12.jpg" /></div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="before-footer h1-mt">
+        <div class="centered-div">
+            <img id="rotatingImage" src="Photos/icon.png">
+
+        </div>
+    </section>
+
+    <hr>
+
+    <footer class="footer">
+        <div class="section d-flex just-center">
+            <div>
+                <a href="tel:+995577620977" style="display:inline-block;">
+                    +995 577 62 09 77
+                </a>
+            </div>
+            <div class="icons">
+                <a href="" class="nav-item"><i class="fa-brands fa-instagram"></i></a>
+                <a href="" class="nav-item"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+        </div>
+        <nav class="footer-nav">
+            <div class="footer-text">
+                <p>
+                    Our collective brings together directors, actors, composers,
+                    sound designers, and visual artists. ZONA handles projects of any scale,
+                    while also collaborating with private clients to deliver tailor-made
+                    production services based on their specific needs
+                </p>
+            </div>
+
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

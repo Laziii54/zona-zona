@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zona | Gallery</title>
+    <link rel="stylesheet" href="Gallery.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../Photos/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-links section">
+            <button class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="respo-disp">
+                <a href="../index.html" class="nav-item">
+                    <img src="../Photos/icon.png" alt="zona-icon" class="zona-icon primary-img">
+                    <img src="../Photos/hovericon.png" alt="zona-icon-hover" class="zona-icon hover-img">
+                </a>
+            </div>
+            <div class="main-links">
+                <a href="../index.html" class="nav-item">home</a>
+                <a href="Gallery/Gallery.html" class="nav-item">gallery</a>
+                <a href="../Bio/Bio.html" class="nav-item">Bio</a>
+            </div>
+            <div class="icons">
+                <a href="" class="nav-item"><i class="fa-brands fa-instagram"></i></a>
+                <a href="" class="nav-item"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+        </nav>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="../index.html">home</a>
+            <a href="Gallery/Gallery.html">gallery</a>
+            <a href="../Bio/Bio.html">bio</a>
+            <div class="mobile-icons">
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-regular fa-envelope"></i></a>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="gallery" id="gallery"></div>
+
+    <div class="lb" id="lb">
+        <button class="lb-close" id="lbClose">✕</button>
+        <button class="lb-prev" id="lbPrev">&#8592;</button>
+        <img id="lbImg" src="" alt="" />
+        <button class="lb-next" id="lbNext">&#8594;</button>
+    </div>
+
+    <script src="../script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const burger = document.getElementById("burger");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            if (!burger || !mobileMenu) return;
+
+            burger.addEventListener("click", () => {
+                burger.classList.toggle("open");
+                mobileMenu.classList.toggle("open");
+            });
+        });
+
+        const photos = Array.from({ length: 79 }, (_, i) => ({
+            src: `GalleryPhotos/${i + 1}.jpg`
+        }));
+
+        let cur = 0;
+
+        function render(list) {
+            const g = document.getElementById('gallery');
+            list.forEach((p, i) => {
+                const d = document.createElement('div');
+                d.className = 'photo';
+                d.innerHTML = `<img src="${p.src}" loading="lazy"/>`;
+                d.onclick = () => open(i);
+                g.appendChild(d);
+            });
+        }
+
+        function open(i) {
+            cur = i;
+            document.getElementById('lbImg').src = photos[i].src;
+            document.getElementById('lb').classList.add('open');
+        }
+
+        function close() { document.getElementById('lb').classList.remove('open'); }
+
+        document.getElementById('lbClose').onclick = close;
+        document.getElementById('lbPrev').onclick = () => open((cur - 1 + photos.length) % photos.length);
+        document.getElementById('lbNext').onclick = () => open((cur + 1) % photos.length);
+        document.getElementById('lb').onclick = e => { if (e.target.id === 'lb') close(); };
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') close();
+            if (e.key === 'ArrowLeft') open((cur - 1 + photos.length) % photos.length);
+            if (e.key === 'ArrowRight') open((cur + 1) % photos.length);
+        });
+
+        render(photos);
+    </script>
+</body>
+
+</html>
