@@ -1,0 +1,340 @@
+/* Chrome / Edge / Safari */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(to bottom, #050505, #0b0b0b);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
+    border-radius: 50px;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    box-shadow:
+        inset 0 0 6px rgba(255, 255, 255, 0.05),
+        0 0 10px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #3a3a3a, #1f1f1f);
+    box-shadow:
+        inset 0 0 8px rgba(255, 255, 255, 0.08),
+        0 0 14px rgba(255, 255, 255, 0.06);
+}
+
+/* =========================
+   ALWAYS BURGER MENU
+========================= */
+
+.nav-links {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    z-index: 2000;
+}
+
+/* BURGER */
+.burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 8px;
+}
+
+.burger span {
+    width: 28px;
+    height: 2px;
+    background: white;
+    transition: 0.35s ease;
+}
+
+/* ANIMATION */
+.burger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.burger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* FULL SCREEN MENU */
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.96);
+    backdrop-filter: blur(12px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 40px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.05);
+    transition: 0.4s ease;
+
+    z-index: 1500;
+}
+
+/* OPEN STATE */
+.mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+/* LINKS */
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.mobile-menu a:hover {
+    opacity: 0.5;
+}
+
+/* ICONS */
+.mobile-icons {
+    display: flex;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+.mobile-icons i {
+    font-size: 22px;
+}
+
+.logo img {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #2a2a2a #050505;
+}
+
+html {
+    scroll-behavior: smooth;
+    min-height: 100vh;
+}
+
+.logo {
+    display: inline-block;
+    position: relative;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    cursor: pointer;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Cinema;
+    src: url(../Font/Goldman-Regular.ttf);
+}
+
+body {
+    background-color: rgb(0, 0, 2);
+    color: white;
+    font-family: Cinema;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main Content */
+
+.bio-section {
+    flex: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    padding: 10vh 8vw 80px;
+}
+
+.logo img {
+    max-width: clamp(80px, 12vw, 150px);
+}
+
+.about-zona {
+    margin-top: 5vh;
+    max-width: 900px;
+    border-radius: 20px;
+}
+
+.about-zona h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.about-zona p {
+    font-size: clamp(15px, 1.8vw, 18px);
+    line-height: 1.8;
+    color: #d1d1d1;
+    margin-bottom: 25px;
+}
+
+.about-zona p:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer */
+
+.footer {
+    background: rgb(5, 5, 8);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px 8vw;
+}
+
+.just-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    max-width: 1150px;
+    margin: 0 auto 40px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    font-size: clamp(14px, 1.5vw, 16px);
+    transition: 0.3s;
+}
+
+.footer a:hover {
+    opacity: 0.7;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icons i {
+    font-size: 22px;
+}
+
+.footer-text {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-text p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: clamp(12px, 1.3vw, 14px);
+    line-height: 1.9;
+    letter-spacing: 1px;
+}
+
+/* Tablet */
+
+@media (max-width: 992px) {
+
+    .bio-section {
+        padding: 8vh 6vw 70px;
+    }
+
+    .footer {
+        padding: 35px 6vw;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .bio-section {
+        padding: 60px 25px 60px;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    .about-zona {
+        margin-top: 35px;
+        text-align: center;
+    }
+
+    .just-center {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer {
+        padding: 35px 25px;
+    }
+
+    .icons {
+        justify-content: center;
+    }
+
+    .icons i {
+        font-size: 20px;
+    }
+}
+
+/* Small Mobile */
+
+@media (max-width: 480px) {
+
+    .bio-section {
+        padding: 50px 18px 50px;
+    }
+
+    .footer {
+        padding: 30px 18px;
+    }
+
+    .about-zona h1 {
+        letter-spacing: 1px;
+    }
+
+    .about-zona p {
+        line-height: 1.75;
+    }
+}

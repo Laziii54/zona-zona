@@ -1,11 +1,57 @@
+/* Chrome / Edge / Safari */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(to bottom,
+            #050505,
+            #0b0b0b);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg,
+            #2a2a2a,
+            #1a1a1a);
+    border-radius: 50px;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    box-shadow:
+        inset 0 0 6px rgba(255, 255, 255, 0.05),
+        0 0 10px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg,
+            #3a3a3a,
+            #1f1f1f);
+    box-shadow:
+        inset 0 0 8px rgba(255, 255, 255, 0.08),
+        0 0 14px rgba(255, 255, 255, 0.06);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #2a2a2a #050505;
+}
+
+/* Smooth feel for whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+
 html,
 body {
     height: 100%;
     margin: 0;
 }
 
-.nav-links{
+.nav-links {
     position: absolute !important;
+    width: 100% !important;
 }
 
 body {
@@ -41,7 +87,7 @@ header h1 {
 .gallery {
     columns: 4 200px;
     column-gap: 8px;
-    padding: 30px;
+    padding: 50px 30px 30px 30px;
 }
 
 .photo {

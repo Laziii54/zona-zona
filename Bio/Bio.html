@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio | Zona</title>
+    <link rel="stylesheet" href="bio.css">
+    <link rel="icon" href="../Photos/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <nav class="nav-links section">
+        <button class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">home</a>
+        <a href="../Gallery/Gallery.html">gallery</a>
+        <a href="Bio.html">bio</a>
+
+        <div class="mobile-icons">
+            <a href="https://www.instagram.com/zona.sector?utm_source=qr" class="nav-item" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zona.sector54@gmail.com" target="_blank"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+    </div>
+
+    <section class="bio-section">
+        <div class="logo">
+            <img id="logoImg" src="../Photos/icon.png" alt="Zona Logo">
+        </div>
+        <section class="about-zona">
+            <h1>ZONA / Sectori</h1>
+
+            <p>
+                ZONA / Sectori is a collective of young independent artists, creating a
+                space for creatives with different skills and visions. Our goal is to
+                build a platform where artists can create independent projects based on
+                their own taste and ideas.
+            </p>
+
+            <p>
+                We work with private clients on video and photo production, editing,
+                and other creative services. The income generated is fully directed
+                toward funding projects selected and developed by the ZONA team.
+            </p>
+
+            <p>
+                Our main idea is independence — we believe that in Georgia it is
+                possible to create and produce work that is completely independent,
+                free, and authentic.
+            </p>
+
+            <p>
+                We are looking for independent artists and people who are ready to
+                create something new based on their own vision.
+            </p>
+        </section>
+    </section>
+
+    <footer class="footer">
+        <div class="just-center">
+            <div>
+                <a href="tel:+995577620977" style="display:inline-block;">
+                    +995 577 62 09 77
+                </a>
+            </div>
+            <div class="icons">
+                <a href="https://www.instagram.com/zona.sector?utm_source=qr" class="nav-item" target="_blank"><i
+                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zona.sector54@gmail.com" target="_blank"><i
+                        class="fa-regular fa-envelope"></i></a>
+            </div>
+        </div>
+        <nav class="footer-nav">
+            <div class="footer-text">
+                <p>
+                    Our collective brings together directors, actors, composers,
+                    sound designers, and visual artists. ZONA handles projects of any scale,
+                    while also collaborating with private clients to deliver tailor-made
+                    production services based on their specific needs
+                </p>
+            </div>
+
+        </nav>
+    </footer>
+
+
+    <script>
+        const burger = document.getElementById("burger");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        burger.addEventListener("click", () => {
+            burger.classList.toggle("open");
+            mobileMenu.classList.toggle("open");
+        });
+
+        mobileMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                burger.classList.remove("open");
+                mobileMenu.classList.remove("open");
+            });
+        });
+    </script>
+
+    <script>
+        /* არსებულის ნაცვლად გამოიყენე ეს კოდი */
+        const logo = document.querySelector(".logo");
+        const img = document.getElementById("logoImg");
+
+        // შევინახოთ ორიგინალი სურათის მისამართი, რომ დაბრუნებისას გამოვიყენოთ
+        const originalSrc = "../Photos/icon.png";
+
+        const images = [
+            "../Photos/icon.png",
+            "../Photos/icon1.png",
+            "../Photos/icon2.png",
+            "../Photos/icon3.png",
+            "../Photos/icon4.png",
+        ];
+
+        let currentIndex = 0;
+
+        function setImage(index) {
+            // თუ იგივე სურათია, არაფერი შეცვალო
+            if (index === currentIndex && img.src.includes(images[index])) return;
+
+            currentIndex = index;
+            img.style.opacity = "0";
+
+            setTimeout(() => {
+                img.src = images[currentIndex];
+                img.style.opacity = "1";
+            }, 120);
+        }
+
+        // მაუსის მოძრაობა სურათზე
+        logo.addEventListener("mousemove", (e) => {
+            const rect = logo.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const step = rect.width / images.length;
+            const index = Math.floor(x / step);
+
+            // უსაფრთხოების ზღვარი ინდექსისთვის
+            const safeIndex = Math.min(index, images.length - 1);
+            setImage(safeIndex);
+        });
+
+        // მაუსის გაყვანისას ორიგინალზე დაბრუნება
+        logo.addEventListener("mouseleave", () => {
+            setImage(0); // 0 არის შენი პირველი სურათი (icon.png)
+        });
+    </script>
+
+</body>
+
+</html>
