@@ -165,3 +165,64 @@ header h1 {
     position: relative;
     z-index: 10000;
 }
+
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    transition: opacity 1s ease;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.loader-content img {
+    width: 120px;
+    opacity: 0;
+    animation: fadeLogo 2s ease forwards;
+}
+
+.loader-content span {
+    color: white;
+    font-size: 14px;
+    letter-spacing: 8px;
+    opacity: 0;
+    animation: fadeText 2s ease .5s forwards;
+}
+
+#loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes fadeLogo {
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeText {
+    from {
+        opacity: 0;
+        letter-spacing: 20px;
+    }
+
+    to {
+        opacity: .8;
+        letter-spacing: 8px;
+    }
+}
