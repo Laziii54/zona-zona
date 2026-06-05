@@ -11,6 +11,226 @@
     <link rel="icon" href="../Photos/icon.png" type="image/png">
 </head>
 
+    <style>
+        @font-face {
+    font-family: Cinema;
+    src: url('../fonts/Cinema-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GeFont';
+    src: url('../font/gefont.ttf') format('truetype');
+}
+
+body,
+input,
+textarea,
+button {
+    font-family: Cinema;
+}
+
+html.lang-ge *:not(input):not(textarea):not(button):not(i) {
+    font-family: 'GeFont' !important;
+    letter-spacing: 3px;
+    font-weight: bolder;
+}
+
+.langToggle {
+    font-family: Cinema !important;
+    margin-top: -5px !important;
+}
+
+.send-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-loader {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    display: none;
+    animation: spin 0.8s linear infinite;
+}
+
+.send-btn.loading .btn-loader {
+    display: inline-block;
+}
+
+.send-btn.loading .btn-text {
+    opacity: 0.7;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.section-title {
+    margin-bottom: 30px;
+}
+
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+    color: white;
+}
+
+.subtitle {
+    opacity: 0.6;
+    margin-bottom: 30px;
+}
+
+/* FORM */
+form {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+textarea {
+    padding: 20px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+textarea {
+    height: 120px;
+    resize: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: white;
+}
+
+/* BUTTON */
+.send-btn {
+    padding: 12px;
+    background: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.send-btn:hover {
+    transform: scale(1.02);
+}
+
+/* ERROR TEXT */
+.error {
+    color: #ff4d4d;
+    font-size: 12px;
+    margin-top: 5px;
+    height: 12px;
+}
+
+@media (max-width: 900px) {
+
+    .contact-section {
+        margin-top: 100px;
+        padding: 0px 20px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* NAV */
+    .main-links {
+        display: none;
+    }
+
+    .icons {
+        display: none;
+    }
+
+    /* FORM */
+    form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    input,
+    textarea {
+        font-size: 14px;
+    }
+
+    .send-btn {
+        width: 100%;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .contact-section {
+        margin-top: 80px;
+    }
+
+    input,
+    textarea {
+        padding: 10px;
+    }
+}
+
+.langToggle {
+    background: transparent;
+    color: white;
+    padding: 5px 5px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 2px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: Cinema;
+    margin-top: -10px;
+}
+
+.langToggle:hover {
+    background: white;
+    color: black;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+    </style>
+    
 <body>
 
     <nav class="nav-links section">
