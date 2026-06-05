@@ -17,7 +17,7 @@
     <div id="loader">
         <div class="loader-content">
             <img src="Photos/icon.png" alt="ZONA Logo">
-            <span>ZONA | SECTOR</span>
+            <span data-key="loaderText">ZONA | SECTOR</span>
         </div>
     </div>
 
@@ -37,15 +37,19 @@
                 </a>
             </div>
             <div class="main-links">
-                <a href="index.html" class="nav-item">home</a>
-                <a href="Gallery/Gallery.html" class="nav-item">gallery</a>
-                <a href="Bio/Bio.html" class="nav-item">Bio</a>
+                <a href="index.html" class="nav-item" data-key="home"></a>
+                <a href="Gallery/Gallery.html" class="nav-item" data-key="gallery"></a>
+                <a href="Bio/Bio.html" class="nav-item" data-key="bio"></a>
+                <a href="Contact/Contact.html" class="nav-item" data-key="contact"></a>
             </div>
             <div class="icons">
                 <a href="https://www.instagram.com/zona.sector?utm_source=qr" class="nav-item" target="_blank"><i
                         class="fa-brands fa-instagram"></i></a>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zona.sector54@gmail.com" target="_blank"><i
                         class="fa-regular fa-envelope"></i></a>
+                <div class="lang-switch">
+                    <button class="langToggle" data-key="langToggle">EN</button>
+                </div>
             </div>
         </nav>
 
@@ -77,14 +81,18 @@
             <div class="indicators"></div>
         </div>
         <div class="mobile-menu" id="mobileMenu">
-            <a href="index.html">home</a>
-            <a href="Gallery/Gallery.html">gallery</a>
-            <a href="Bio/Bio.html">bio</a>
+            <a href="index.html" data-key="home"></a>
+            <a href="Gallery/Gallery.html" data-key="gallery"></a>
+            <a href="Bio/Bio.html" data-key="bio"></a>
+            <a href="Contact/Contact.html" data-key="contact"></a>
             <div class="mobile-icons">
                 <a href="https://www.instagram.com/zona.sector?utm_source=qr" target="_blank"><i
                         class="fa-brands fa-instagram"></i></a>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zona.sector54@gmail.com" target="_blank"><i
                         class="fa-regular fa-envelope"></i></a>
+                <div class="lang-switch">
+                    <button class="langToggle">EN</button>
+                </div>
             </div>
         </div>
     </header>
@@ -92,8 +100,9 @@
     <!-- cards section -->
 
     <div class="h1-mt section">
-        <h1 class="section-title h1tag">ZONA | Sector</h1>
-        <p class="basic-font f-size">A platform for young, independent artists</p>
+        <h1 class="section-title h1tag" data-key="title"></h1>
+        <br>
+        <p class="basic-font f-size" data-key="subtitle"></p>
     </div>
 
     <!-- cards section -->
@@ -108,17 +117,17 @@
         <!-- RIGHT SIDE -->
         <div class="showcase-right">
 
-            <div class="media-card">
+            <div class="media-card" onclick="location.href='Posters/Sadxarmama.html'" style="cursor: pointer;">
                 <video class="card-video" src="Videos/Video1.mp4" muted loop autoplay playsinline>
                 </video>
             </div>
 
-            <div class="media-card">
+            <div class="media-card" onclick="location.href='Posters/Gvirabi.html'" style="cursor: pointer;">
                 <video class="card-video" src="Videos/Video2.mp4" muted loop autoplay playsinline>
                 </video>
             </div>
 
-            <div class="media-card">
+            <div class="media-card" onclick="location.href='Posters/ImNotNeo.html'" style="cursor: pointer;">
                 <video class="card-video" src="Videos/Video3.mp4" muted loop autoplay playsinline>
                 </video>
             </div>
@@ -153,7 +162,7 @@
     </div>
 
     <section class="gallery-section">
-        <h1 class="h1tag section h1-mt">ZONA | GALLERY</h1>
+        <h1 class="h1tag section h1-mt" data-key="galleryTitle"></h1>
 
         <div class="wrapper">
 
@@ -220,27 +229,25 @@
         </div>
         <nav class="footer-nav">
             <div class="footer-text">
-                <p>
-                    Our collective brings together directors, actors, composers,
-                    sound designers, and visual artists. ZONA handles projects of any scale,
-                    while also collaborating with private clients to deliver tailor-made
-                    production services based on their specific needs
-                </p>
+                <p data-key="footer"></p>
             </div>
 
         </nav>
     </footer>
 
     <script>
-        window.addEventListener("load", () => {
+        document.addEventListener("DOMContentLoaded", () => {
+
             setTimeout(() => {
-                document.getElementById("loader").classList.add("hidden");
+                const loader = document.getElementById("loader");
+
+                loader.classList.add("hidden");
 
                 setTimeout(() => {
-                    document.getElementById("loader").remove();
+                    loader.remove();
                 }, 800);
 
-            }, 1500);
+            }, 2000);
         });
     </script>
 

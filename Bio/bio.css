@@ -1,4 +1,41 @@
-/* Chrome / Edge / Safari */
+@font-face {
+    font-family: Cinema;
+    src: url(../Font/Goldman-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'GeFont';
+    src: url('../Font/gefont.ttf') format('truetype');
+    font-display: swap;
+}
+
+.resp-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+body,
+input,
+textarea,
+button {
+    font-family: Cinema;
+}
+
+html[lang="ka"] body,
+html[lang="ka"] p,
+html[lang="ka"] h1,
+html[lang="ka"] a,
+html[lang="ka"] span {
+    font-family: 'GeFont';
+    letter-spacing: 2px;
+}
+
+html[lang="ka"] i {
+    color: #d1d1d1;
+}
+
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -202,11 +239,6 @@ html {
     box-sizing: border-box;
 }
 
-@font-face {
-    font-family: Cinema;
-    src: url(../Font/Goldman-Regular.ttf);
-}
-
 body {
     background-color: rgb(0, 0, 2);
     color: white;
@@ -222,10 +254,9 @@ body {
 .bio-section {
     flex: 1;
     width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-
-    padding: 10vh 8vw 80px;
+    padding: 100px 0px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .logo img {
@@ -261,7 +292,7 @@ body {
 .footer {
     background: rgb(5, 5, 8);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 40px 8vw;
+    padding: 40px 0px;
 }
 
 .just-center {
@@ -269,9 +300,6 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-
-    max-width: 1150px;
-    margin: 0 auto 40px;
 }
 
 .footer a {
@@ -310,24 +338,13 @@ body {
 
 /* Tablet */
 
-@media (max-width: 992px) {
-
-    .bio-section {
-        padding: 8vh 6vw 70px;
-    }
-
-    .footer {
-        padding: 35px 6vw;
-    }
-}
+@media (max-width: 992px) {}
 
 /* Mobile */
 
 @media (max-width: 768px) {
 
-    .bio-section {
-        padding: 60px 25px 60px;
-    }
+    .bio-section {}
 
     .logo {
         text-align: center;
@@ -344,9 +361,7 @@ body {
         gap: 20px;
     }
 
-    .footer {
-        padding: 35px 25px;
-    }
+    .footer {}
 
     .icons {
         justify-content: center;
@@ -361,9 +376,7 @@ body {
 
 @media (max-width: 480px) {
 
-    .bio-section {
-        padding: 50px 18px 50px;
-    }
+    .bio-section {}
 
     .footer {
         padding: 30px 18px;
@@ -376,4 +389,27 @@ body {
     .about-zona p {
         line-height: 1.75;
     }
+}
+
+.langToggle {
+    background: transparent;
+    color: white;
+    padding: 5px 5px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 2px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: Cinema;
+}
+
+.langToggle:hover {
+    background: white;
+    color: black;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }

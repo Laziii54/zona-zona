@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZONA | Sadxarmama</title>
+    <link rel="stylesheet" href="GlobalPosters.css">
+    <link rel="icon" href="../Photos/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div id="loader">
+        <div class="loader-content">
+            <img src="../Photos/icon.png" alt="ZONA Logo">
+            <span data-key="loaderText">ZONA | SECTOR</span>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="nav-links section">
+        <button class="burger" id="burger">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="respo-disp">
+            <a href="../index.html" class="nav-item" style="position:relative;">
+                <img src="../Photos/icon.png" alt="zona-icon" class="zona-icon primary-img">
+                <img src="../Photos/hovericon.png" alt="zona-icon-hover" class="zona-icon hover-img">
+            </a>
+        </div>
+        <div class="main-links">
+            <a href="../index.html" class="nav-item" data-key="home"></a>
+            <a href="../Gallery/Gallery.html" class="nav-item" data-key="gallery"></a>
+            <a href="../Bio/Bio.html" class="nav-item" data-key="bio"></a>
+            <a href="../Contact/Contact.html" class="nav-item" data-key="contact"></a>
+        </div>
+        <div class="icons">
+            <a href="https://www.instagram.com/zona.sector?utm_source=qr" class="nav-item" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zona.sector54@gmail.com" target="_blank">
+                <i class="fa-regular fa-envelope"></i>
+            </a>
+            <div class="lang-switch">
+                <button class="langToggle" data-key="langToggle">EN</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html" data-key="home"></a>
+        <a href="../Gallery/Gallery.html" data-key="gallery"></a>
+        <a href="../Bio/Bio.html" data-key="bio"></a>
+        <a href="../Contact/Contact.html" data-key="contact"></a>
+        <div class="mobile-icons">
+            <a href="https://www.instagram.com/zona.sector?utm_source=qr" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zona.sector54@gmail.com" target="_blank">
+                <i class="fa-regular fa-envelope"></i>
+            </a>
+            <div class="lang-switch">
+                <button class="langToggle" data-key="langToggle">EN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="poster-hero">
+        <div class="poster-hero-bg" id="heroBg" style="background-image: url('../Photos/sadxarmama.jpeg');">
+        </div>
+        <div class="poster-hero-overlay"></div>
+        <div class="poster-hero-content">
+            <span class="release-tag" data-key="releaseTag"></span>
+            <h1 data-key="filmTitle"></h1>
+            <p class="tagline" data-key="tagline"></p>
+            <button class="watch-btn" id="watchBtn">
+                <i class="fa-solid fa-play"></i>
+                <span data-key="watchBtnText"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- INFO -->
+    <section class="poster-info section">
+        <a href="../index.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span data-key="backText"></span>
+        </a>
+
+        <div class="poster-info-grid">
+            <div>
+                <p class="poster-description" data-key="description"></p>
+            </div>
+            <div class="poster-meta">
+                <div class="meta-item">
+                    <span class="meta-label" data-key="directorLabel"></span>
+                    <span class="meta-value" data-key="directorValue"></span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label" data-key="yearLabel"></span>
+                    <span class="meta-value">2024</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label" data-key="genreLabel"></span>
+                    <span class="meta-value" data-key="genreValue"></span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label" data-key="productionLabel"></span>
+                    <span class="meta-value">ZONA | SECTOR</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section">
+
+    <!-- STILLS -->
+    <section class="stills-section section" style="margin-top: 60px;">
+        <p class="stills-title" data-key="VideoLabel"></p>
+
+        <div class="video-player-wrap" id="vpWrap">
+            <video id="vpVideo" loop playsinline>
+                <source src="../Videos/Video1.mp4" type="video/mp4">
+            </video>
+
+            <!-- big play overlay -->
+            <div class="vp-play-overlay visible" id="vpOverlay">
+                <i class="fa-solid fa-play"></i>
+            </div>
+
+            <!-- controls -->
+            <div class="video-player-controls">
+                <!-- play/pause -->
+                <button class="vp-btn" id="vpPlayBtn">
+                    <i class="fa-solid fa-play" id="vpPlayIcon"></i>
+                </button>
+
+                <!-- progress bar -->
+                <div class="vp-progress" id="vpProgress">
+                    <div class="vp-progress-fill" id="vpFill"></div>
+                </div>
+
+                <!-- time -->
+                <span class="vp-time" id="vpTime">0:00</span>
+
+                <!-- mute -->
+                <button class="vp-btn" id="vpMuteBtn">
+                    <i class="fa-solid fa-volume-xmark" id="vpMuteIcon"></i>
+                </button>
+
+                <!-- fullscreen -->
+                <button class="vp-btn" id="vpFsBtn">
+                    <i class="fa-solid fa-expand" id="vpFsIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <p class="stills-title" style="margin-top: 50px;" data-key="stillsLabel"></p>
+        <div class="stills-grid">
+            <img src="../Photos/neo.jpeg" alt="still 1">
+            <img src="../Photos/img5.jpg" alt="still 2">
+            <img src="../Photos/img6.jpg" alt="still 3">
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="section just-center">
+            <div>
+                <a href="tel:+995577620977">+995 577 62 09 77</a>
+            </div>
+            <div class="icons">
+                <a href="https://www.instagram.com/zona.sector?utm_source=qr" target="_blank" class="nav-item">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zona.sector54@gmail.com" target="_blank">
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        <nav class="footer-nav">
+            <div class="footer-text">
+                <p data-key="footer"></p>
+            </div>
+        </nav>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lbClose">✕</button>
+        <button class="lightbox-arrow prev" id="lbPrev"><i class="fa-solid fa-chevron-left"></i></button>
+        <img class="lightbox-img" id="lbImg" src="" alt="">
+        <button class="lightbox-arrow next" id="lbNext"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="lightbox-counter" id="lbCounter"></div>
+    </div>
+
+    <!-- FILM MODAL -->
+    <div class="film-modal" id="filmModal">
+        <div class="modal-inner">
+            <button class="close-btn" id="closeModal">✕ <span data-key="closeText"></span></button>
+            <div class="modal-video-wrap">
+                <iframe id="ytFrame" src="" title="YouTube video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                loaderText: "ZONA | SECTOR",
+                home: "home", gallery: "gallery", bio: "bio", contact: "contact",
+                langToggle: "EN",
+                releaseTag: "Short Film · 2024",
+                filmTitle: "Sadxarmama",
+                tagline: "A ZONA | SECTOR production",
+                watchBtnText: "Watch Film",
+                backText: "Back to all works",
+                description: "A short film by ZONA | SECTOR. A story told through image and sound, exploring the boundaries of independent Georgian cinema.",
+                directorLabel: "Director",
+                directorValue: "ZONA | SECTOR",
+                yearLabel: "Year",
+                genreLabel: "Genre",
+                genreValue: "Short Film",
+                productionLabel: "Production",
+                stillsLabel: "Stills",
+                closeText: "Close",
+                footer: "Our collective brings together directors, actors, composers, sound designers, and visual artists."
+            },
+            ge: {
+                loaderText: "ზონა | სექტორი",
+                home: "მთავარი", gallery: "გალერეა", bio: "ბიო", contact: "კონტაქტი",
+                langToggle: "ქარ",
+                releaseTag: "მოკლემეტრაჟიანი · 2024",
+                filmTitle: "სადხარმამა",
+                tagline: "ზონა | სექტორის პროდაქშენი",
+                watchBtnText: "ფილმის ნახვა",
+                backText: "ყველა ნამუშევარი",
+                description: "ზონა | სექტორის მოკლემეტრაჟიანი ფილმი. სურათებითა და ბგერით მოთხრობილი ისტორია, რომელიც დამოუკიდებელი ქართული კინოს საზღვრებს სწავლობს.",
+                directorLabel: "რეჟისორი",
+                directorValue: "ზონა | სექტორი",
+                yearLabel: "წელი",
+                genreLabel: "ჟანრი",
+                genreValue: "მოკლემეტრაჟიანი",
+                productionLabel: "პროდაქშენი",
+                stillsLabel: "კადრები",
+                closeText: "დახურვა",
+                footer: "ჩვენი კოლექტივი აერთიანებს რეჟისორებს, მსახიობებს, კომპოზიტორებს, ხმის დიზაინერებსა და ვიზუალურ არტისტებს."
+            }
+        };
+
+        const toggleBtns = document.querySelectorAll(".langToggle");
+        let currentLang = localStorage.getItem("lang") || "en";
+
+        function updateText(lang) {
+            document.querySelectorAll("[data-key]").forEach(el => {
+                const key = el.getAttribute("data-key");
+                if (translations[lang][key] !== undefined) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+            document.documentElement.lang = lang === "ge" ? "ka" : "en";
+            localStorage.setItem("lang", lang);
+            currentLang = lang;
+        }
+
+        toggleBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                updateText(currentLang === "en" ? "ge" : "en");
+            });
+        });
+
+        updateText(currentLang);
+    </script>
+
+    <script src="Global.js"></script>
+
+
+</body>
+
+</html>

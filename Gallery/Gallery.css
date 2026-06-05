@@ -226,3 +226,27 @@ header h1 {
         letter-spacing: 8px;
     }
 }
+
+.langToggle {
+    background: transparent;
+    color: white;
+    padding: 5px 5px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 2px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: Cinema;
+    margin-top: -5px;
+}
+
+.langToggle:hover {
+    background: white;
+    color: black;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}

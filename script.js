@@ -366,3 +366,68 @@ if (burger && mobileMenu) {
         });
     });
 }
+
+
+/* LANGUAGE SWITCH */
+const toggleBtns = document.querySelectorAll(".langToggle");
+
+const translations = {
+    en: {
+        home: "home",
+        gallery: "gallery",
+        bio: "bio",
+        contact: "contact",
+        title: "Zona | Sector",
+        subtitle: "A platform for young, independent artists",
+        galleryTitle: "ZONA | Gallery",
+        footer: "Our collective brings together directors, actors, composers, sound designers, and visual artists. ზონა handles projects of any scale, while also collaborating with private clients to deliver tailor-made production services based on their specific needs.",
+        loaderText: "ZONA | SECTOR",
+        langToggle: "EN"
+    },
+    ge: {
+        home: "მთავარი",
+        gallery: "გალერეა",
+        bio: "ბიო",
+        contact: "კონტაქტი",
+        title: "ზონა | სექტორი",
+        subtitle: "ახალგაზრდა დამოუკიდებელი არტისტების პლატფორმა",
+        galleryTitle: "ზონა | გალერეა",
+        footer: "ჩვენი კოლექტივი აერთიანებს რეჟისორებს, მსახიობებს, კომპოზიტორებს, ხმის დიზაინერებსა და ვიზუალურ არტისტებს. ზონა ახორციელებს ნებისმიერი მასშტაბის პროექტებს და ამავდროულად თანამშრომლობს კერძო კლიენტებთან, რათა მათ კონკრეტულ საჭიროებებსა და მოთხოვნებზე მორგებული საპროდაქშენო მომსახურება შესთავაზოს.",
+        loaderText: "ზონა | სექტორი",
+        langToggle: "ქა"
+    }
+};
+
+let currentLang = localStorage.getItem("lang") || "en";
+
+function updateText(lang) {
+    // ტექსტების განახლება
+    document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.getAttribute("data-key");
+        if (translations[lang][key]) {
+            el.innerText = translations[lang][key];
+        }
+    });
+
+    // ენის ატრიბუტი და ლოკალური შენახვა
+    document.documentElement.lang = lang === "ge" ? "ka" : "en";
+    localStorage.setItem("lang", lang);
+
+    // ღილაკების ტექსტის განახლება
+    toggleBtns.forEach(btn => {
+        btn.innerText = lang === "en" ? "EN" : "ქარ";
+    });
+
+    currentLang = lang;
+}
+
+// Event Listener-ების მიმაგრება ყველა ღილაკზე
+toggleBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const newLang = currentLang === "en" ? "ge" : "en";
+        updateText(newLang);
+    });
+});
+
+// საწყისი ჩატვირთვა
+updateText(currentLang);

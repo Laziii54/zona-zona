@@ -20,24 +20,24 @@
             <span></span>
             <span></span>
         </button>
-
-
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
-        <a href="../index.html">home</a>
-        <a href="../Gallery/Gallery.html">gallery</a>
-        <a href="Bio.html">bio</a>
+        <a href="../index.html" data-key="home">home</a>
+        <a href="../Gallery/Gallery.html" data-key="gallery">gallery</a>
+        <a href="Bio.html" data-key="bio">bio</a>
+        <a href="../Contact/Contact.html" data-key="contact">contact</a>
 
         <div class="mobile-icons">
             <a href="https://www.instagram.com/zona.sector?utm_source=qr" class="nav-item" target="_blank"><i
                     class="fa-brands fa-instagram"></i></a>
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zona.sector54@gmail.com" target="_blank"><i
                     class="fa-regular fa-envelope"></i></a>
+            <button class="langToggle">EN</button>
         </div>
     </div>
 
-    <section class="bio-section">
+    <section class="bio-section resp-section">
         <div class="logo-width">
             <div class="logo">
                 <img id="logoImg" src="../Photos/icon.png" alt="Zona Logo">
@@ -48,31 +48,17 @@
         </div>
 
         <section class="about-zona">
-            <h1>ZONA / Sectori</h1>
-
-            <p>
-                ZONA / Sectori is a collective of young independent artists, creating a
-                space for creatives with different skills and visions. Our goal is to
-                build a platform where artists can create independent projects based on
-                their own taste and ideas.
-            </p>
-
-            <p>
-                We work with private clients on video and photo production, editing,
-                and other creative services. The income generated is fully directed
-                toward funding projects selected and developed by the ZONA team.
-            </p>
-
-            <p>
-                Our main idea is independence — we believe that in Georgia it is
-                possible to create and produce work that is completely independent,
-                free, and authentic.
-            </p>
-
-            <p>
-                We are looking for independent artists and people who are ready to
-                create something new based on their own vision.
-            </p>
+            <h1 data-key="title">ZONA / Sector</h1>
+            <p data-key="bioText1">ZONA / Sector is a collective of young independent artists, creating a space for
+                creatives with different skills and visions. Our goal is to build a platform where artists can create
+                independent projects based on their own taste and ideas.</p>
+            <p data-key="bioText2">We work with private clients on video and photo production, editing, and other
+                creative services. The income generated is fully directed toward funding projects selected and developed
+                by the ZONA team.</p>
+            <p data-key="bioText3">Our main idea is independence. We believe that in Georgia it is possible to create
+                and produce work that is completely independent, free, and authentic.</p>
+            <p data-key="bioText4">We are looking for independent artists and people who are ready to create something
+                new based on their own vision.</p>
         </section>
     </section>
 
@@ -81,37 +67,79 @@
     </section>
 
     <footer class="footer">
-        <div class="just-center">
-            <div>
-                <a href="tel:+995577620977" style="display:inline-block;">
-                    +995 577 62 09 77
-                </a>
+        <div class="resp-section">
+            <div class="just-center container">
+                <div>
+                    <a href="tel:+995577620977" style="display:inline-block;">
+                        +995 577 62 09 77
+                    </a>
+                </div>
+                <div class="icons">
+                    <a href="https://www.instagram.com/zona.sector?utm_source=qr" class="nav-item" target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zona.sector54@gmail.com" target="_blank"><i
+                            class="fa-regular fa-envelope"></i></a>
+                </div>
             </div>
-            <div class="icons">
-                <a href="https://www.instagram.com/zona.sector?utm_source=qr" class="nav-item" target="_blank"><i
-                        class="fa-brands fa-instagram"></i></a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zona.sector54@gmail.com" target="_blank"><i
-                        class="fa-regular fa-envelope"></i></a>
-            </div>
+            <nav class="footer-nav">
+                <div class="footer-text">
+                    <p data-key="footer">Our collective brings together directors, actors, composers, sound designers,
+                        and
+                        visual artists. ZONA handles projects of any scale, while also collaborating with private
+                        clients to
+                        deliver tailor-made production services based on their specific needs</p>
+                </div>
+            </nav>
         </div>
-        <nav class="footer-nav">
-            <div class="footer-text">
-                <p>
-                    Our collective brings together directors, actors, composers,
-                    sound designers, and visual artists. ZONA handles projects of any scale,
-                    while also collaborating with private clients to deliver tailor-made
-                    production services based on their specific needs
-                </p>
-            </div>
-
-        </nav>
     </footer>
 
-
     <script>
+        // LANGUAGE SWITCH
+        const toggleBtns = document.querySelectorAll(".langToggle");
+        const translations = {
+            en: {
+                home: "home", gallery: "gallery", bio: "bio", contact: "contact",
+                title: "ZONA / Sector",
+                bioText1: "ZONA / Sector is a collective of young independent artists, creating a space for creatives with different skills and visions. Our goal is to build a platform where artists can create independent projects based on their own taste and ideas.",
+                bioText2: "We work with private clients on video and photo production, editing, and other creative services. The income generated is fully directed toward funding projects selected and developed by the ZONA team.",
+                bioText3: "Our main idea is independence. We believe that in Georgia it is possible to create and produce work that is completely independent, free, and authentic.",
+                bioText4: "We are looking for independent artists and people who are ready to create something new based on their own vision.",
+                footer: "Our collective brings together directors, actors, composers, sound designers, and visual artists. ZONA handles projects of any scale, while also collaborating with private clients to deliver tailor-made production services based on their specific needs"
+            },
+            ge: {
+                home: "მთავარი", gallery: "გალერეა", bio: "ბიო", contact: "კონტაქტი",
+                title: "ზონა / სექტორი",
+                bioText1: "ზონა / სექტორი არის ახალგაზრდა დამოუკიდებელი არტისტების კოლექტივი, რომელიც ქმნის სივრცეს სხვადასხვა უნარებისა და ხედვის შემოქმედთათვის. ჩვენი მიზანია შევქმნათ პლატფორმა, სადაც არტისტებს შეეძლებათ შექმნან დამოუკიდებელი პროექტები საკუთარი გემოვნებისა და იდეებს საფუძველზე.",
+                bioText2: "ჩვენ ვმუშაობთ კერძო კლიენტებთან ვიდეო და ფოტო წარმოებაზე, მონტაჟსა და სხვა კრეატიულ მომსახურებებზე. მიღებული შემოსავალი სრულად ხმარდება ზონა-ს გუნდის მიერ შერჩეული და განვითარებული პროექტების დაფინანსებას.",
+                bioText3: "ჩვენი მთავარი იდეა დამოუკიდებლობაა. გვჯერა, რომ საქართველოში შესაძლებელია ისეთი ნამუშევრების შექმნა და წარმოება, რომლებიც იქნება სრულიად დამოუკიდებელი, თავისუფალი და ავთენტური.",
+                bioText4: "ჩვენ ვეძებთ დამოუკიდებელ არტისტებს და ადამიანებს, რომლებიც მზად არიან შექმნან რაღაც ახალი საკუთარ ხედვაზე დაყრდნობით.",
+                footer: "ჩვენი კოლექტივი აერთიანებს რეჟისორებს, მსახიობებს, კომპოზიტორებს, ხმის დიზაინერებსა და ვიზუალურ არტისტებს. ZONA ახორციელებს ნებისმიერი მასშტაბის პროექტებს და ამავდროულად თანამშრომლობს კერძო კლიენტებთან, რათა მათ კონკრეტულ საჭიროებებსა და მოთხოვნებზე მორგებული საპროდაქშენო მომსახურება შესთავაზოს."
+            }
+        };
+
+        let currentLang = localStorage.getItem("lang") || "en";
+
+        function updateText(lang) {
+            document.querySelectorAll("[data-key]").forEach(el => {
+                const key = el.getAttribute("data-key");
+                if (translations[lang][key]) el.innerText = translations[lang][key];
+            });
+            document.documentElement.lang = lang === "ge" ? "ka" : "en";
+            localStorage.setItem("lang", lang);
+            toggleBtns.forEach(btn => btn.innerText = lang === "en" ? "EN" : "GE");
+            currentLang = lang;
+        }
+
+        toggleBtns.forEach(btn => btn.addEventListener("click", () => {
+            currentLang = currentLang === "en" ? "ge" : "en";
+            updateText(currentLang);
+        }));
+
+        updateText(currentLang);
+
+        // OTHER SCRIPTS
         const burger = document.getElementById("burger");
         const mobileMenu = document.getElementById("mobileMenu");
-
         burger.addEventListener("click", () => {
             burger.classList.toggle("open");
             mobileMenu.classList.toggle("open");
@@ -123,57 +151,35 @@
                 mobileMenu.classList.remove("open");
             });
         });
-    </script>
 
-    <script>
-        /* არსებულის ნაცვლად გამოიყენე ეს კოდი */
         const logo = document.querySelector(".logo");
         const img = document.getElementById("logoImg");
-
-        // შევინახოთ ორიგინალი სურათის მისამართი, რომ დაბრუნებისას გამოვიყენოთ
-        const originalSrc = "../Photos/icon.png";
-
-        const images = [
-            "../Photos/icon.png",
-            "../Photos/icon1.png",
-            "../Photos/icon2.png",
-            "../Photos/icon3.png",
-            "../Photos/icon4.png",
-        ];
-
+        const images = ["../Photos/icon.png", "../Photos/icon1.png", "../Photos/icon2.png", "../Photos/icon3.png", "../Photos/icon4.png"];
         let currentIndex = 0;
 
         function setImage(index) {
-            // თუ იგივე სურათია, არაფერი შეცვალო
             if (index === currentIndex && img.src.includes(images[index])) return;
-
             currentIndex = index;
             img.style.opacity = "0";
-
             setTimeout(() => {
                 img.src = images[currentIndex];
                 img.style.opacity = "1";
             }, 120);
         }
 
-        // მაუსის მოძრაობა სურათზე
         logo.addEventListener("mousemove", (e) => {
             const rect = logo.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const step = rect.width / images.length;
             const index = Math.floor(x / step);
-
-            // უსაფრთხოების ზღვარი ინდექსისთვის
             const safeIndex = Math.min(index, images.length - 1);
             setImage(safeIndex);
         });
 
-        // მაუსის გაყვანისას ორიგინალზე დაბრუნება
         logo.addEventListener("mouseleave", () => {
-            setImage(0); // 0 არის შენი პირველი სურათი (icon.png)
+            setImage(0);
         });
     </script>
-
 </body>
 
 </html>

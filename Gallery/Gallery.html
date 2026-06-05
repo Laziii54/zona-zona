@@ -18,7 +18,7 @@
     <div id="loader">
         <div class="loader-content">
             <img id="loaderImg" src="../Photos/icon.png" alt="ZONA Logo">
-            <span>ZONA | SECTOR</span>
+            <span data-key="loaderText">ZONA | SECTOR</span>
         </div>
     </div>
 
@@ -36,31 +36,34 @@
                 </a>
             </div>
             <div class="main-links">
-                <a href="../index.html" class="nav-item">home</a>
-                <a href="#" class="nav-item">gallery</a>
-                <a href="../Bio/Bio.html" class="nav-item">Bio</a>
+                <a href="../index.html" class="nav-item" data-key="home"></a>
+                <a href="#" class="nav-item" data-key="gallery"></a>
+                <a href="../Bio/Bio.html" class="nav-item" data-key="bio"></a>
+                <a href="../Contact/Contact.html" class="nav-item" data-key="contact"></a>
             </div>
             <div class="icons">
                 <a href="https://www.instagram.com/zona.sector?utm_source=qr" class="nav-item" target="_blank"><i
                         class="fa-brands fa-instagram"></i></a>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zona.sector54@gmail.com" class="nav-item"
                     target="_blank"><i class="fa-regular fa-envelope"></i></a>
+                <button class="langToggle" data-key="langToggle">EN</button>
             </div>
         </nav>
-        </div>
+
         <div class="mobile-menu" id="mobileMenu">
-            <a href="../index.html">home</a>
-            <a href="Gallery/Gallery.html">gallery</a>
-            <a href="../Bio/Bio.html">bio</a>
+            <a href="../index.html" data-key="home"></a>
+            <a href="#" data-key="gallery"></a>
+            <a href="../Bio/Bio.html" data-key="bio"></a>
+            <a href="../Contact/Contact.html" data-key="contact"></a>
             <div class="mobile-icons">
                 <a href="https://www.instagram.com/zona.sector?utm_source=qr" target="_blank"><i
                         class="fa-brands fa-instagram"></i></a>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zona.sector54@gmail.com" target="_blank"><i
                         class="fa-regular fa-envelope"></i></a>
+                <button class="langToggle" data-key="langToggle">EN</button>
             </div>
         </div>
     </header>
-
 
     <div class="gallery" id="gallery"></div>
 
@@ -71,89 +74,101 @@
         <button class="lb-next" id="lbNext">&#8594;</button>
     </div>
 
-    <script src="../script.js"></script>
-
     <script>
+        // 1. LANGUAGE SWITCH LOGIC
+        const toggleBtns = document.querySelectorAll(".langToggle");
+        const translations = {
+            en: {
+                home: "home",
+                gallery: "gallery",
+                bio: "bio",
+                contact: "contact",
+                loaderText: "ZONA | SECTOR"
+            },
+            ge: {
+                home: "მთავარი",
+                gallery: "გალერეა",
+                bio: "ბიო",
+                contact: "კონტაქტი",
+                loaderText: "ზონა | სექტორი",
+            }
+        };
+
+        let currentLang = localStorage.getItem("lang") || "en";
+
+        function updateText(lang) {
+            document.querySelectorAll("[data-key]").forEach(el => {
+                const key = el.getAttribute("data-key");
+                if (translations[lang][key]) el.innerText = translations[lang][key];
+            });
+            document.documentElement.lang = lang === "ge" ? "ka" : "en";
+            localStorage.setItem("lang", lang);
+            toggleBtns.forEach(btn => btn.innerText = lang === "en" ? "EN" : "ქარ");
+            currentLang = lang;
+        }
+
+        toggleBtns.forEach(btn => btn.addEventListener("click", () => {
+            currentLang = currentLang === "en" ? "ge" : "en";
+            updateText(currentLang);
+        }));
+
+        // 2. LOADER AND GALLERY LOGIC
         window.addEventListener("load", () => {
             const loader = document.getElementById("loader");
-
             setTimeout(() => {
                 loader.classList.add("hidden");
-
-                setTimeout(() => {
-                    loader.remove();
-                }, 1000);
-
+                setTimeout(() => loader.remove(), 1000);
             }, 1500);
+            updateText(currentLang); // ენის გააქტიურება ჩატვირთვისას
         });
 
-
-        // 🔥 LOADER IMAGE CHANGE
-        const loaderImages = [
-            "../Photos/galleryicon1.png",
-            "../Photos/galleryicon2.png",
-            "../Photos/galleryicon3.png",
-            "../Photos/galleryicon4.png"
-        ];
-
+        const loaderImages = ["../Photos/galleryicon1.png", "../Photos/galleryicon2.png", "../Photos/galleryicon3.png", "../Photos/galleryicon4.png"];
         let i = 0;
         const img = document.getElementById("loaderImg");
-
         setInterval(() => {
             i = (i + 1) % loaderImages.length;
             img.src = loaderImages[i];
         }, 300);
-    </script>
 
-    <script>
         document.addEventListener("DOMContentLoaded", () => {
             const burger = document.getElementById("burger");
             const mobileMenu = document.getElementById("mobileMenu");
+            if (burger) {
+                burger.addEventListener("click", () => {
+                    burger.classList.toggle("open");
+                    mobileMenu.classList.toggle("open");
+                });
+            }
 
-            if (!burger || !mobileMenu) return;
-
-            burger.addEventListener("click", () => {
-                burger.classList.toggle("open");
-                mobileMenu.classList.toggle("open");
-            });
-        });
-
-        const photos = Array.from({ length: 81 }, (_, i) => ({
-            src: `GalleryPhotos/${i + 1}.jpg`
-        }));
-
-        let cur = 0;
-
-        function render(list) {
+            const photos = Array.from({ length: 81 }, (_, i) => ({ src: `GalleryPhotos/${i + 1}.jpg` }));
+            let cur = 0;
             const g = document.getElementById('gallery');
-            list.forEach((p, i) => {
+
+            photos.forEach((p, i) => {
                 const d = document.createElement('div');
                 d.className = 'photo';
                 d.innerHTML = `<img src="${p.src}" loading="lazy"/>`;
-                d.onclick = () => open(i);
+                d.onclick = () => openLb(i);
                 g.appendChild(d);
             });
-        }
 
-        function open(i) {
-            cur = i;
-            document.getElementById('lbImg').src = photos[i].src;
-            document.getElementById('lb').classList.add('open');
-        }
+            function openLb(i) {
+                cur = i;
+                document.getElementById('lbImg').src = photos[i].src;
+                document.getElementById('lb').classList.add('open');
+            }
 
-        function close() { document.getElementById('lb').classList.remove('open'); }
-
-        document.getElementById('lbClose').onclick = close;
-        document.getElementById('lbPrev').onclick = () => open((cur - 1 + photos.length) % photos.length);
-        document.getElementById('lbNext').onclick = () => open((cur + 1) % photos.length);
-        document.getElementById('lb').onclick = e => { if (e.target.id === 'lb') close(); };
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') close();
-            if (e.key === 'ArrowLeft') open((cur - 1 + photos.length) % photos.length);
-            if (e.key === 'ArrowRight') open((cur + 1) % photos.length);
+            function closeLb() { document.getElementById('lb').classList.remove('open'); }
+            document.getElementById('lbClose').onclick = closeLb;
+            document.getElementById('lbPrev').onclick = () => openLb((cur - 1 + photos.length) % photos.length);
+            document.getElementById('lbNext').onclick = () => openLb((cur + 1) % photos.length);
+            document.getElementById('lb').onclick = e => { if (e.target.id === 'lb') closeLb(); };
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape') closeLb();
+                if (e.key === 'ArrowLeft') openLb((cur - 1 + photos.length) % photos.length);
+                if (e.key === 'ArrowRight') openLb((cur + 1) % photos.length);
+            });
         });
-
-        render(photos);
     </script>
 </body>
 

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZONA | Contact</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="icon" href="../Photos/icon.png" type="image/png">
+</head>
+
+<body>
+
+    <nav class="nav-links section">
+        <button class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html" data-key="home">home</a>
+        <a href="../Gallery/Gallery.html" data-key="gallery">gallery</a>
+        <a href="../Bio/Bio.html" data-key="bio">bio</a>
+        <a href="Contact.html" data-key="contact">contact</a>
+        <div class="mobile-icons">
+            <a href="https://www.instagram.com/zona.sector?utm_source=qr" class="nav-item" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zona.sector54@gmail.com" target="_blank"><i
+                    class="fa-regular fa-envelope"></i></a>
+            <button class="langToggle">EN</button>
+        </div>
+    </div>
+
+    <nav class="nav-links section">
+        <div class="respo-disp">
+            <a href="../index.html" class="nav-item">
+                <img src="../Photos/icon.png" class="zona-icon primary-img">
+                <img src="../Photos/hovericon.png" class="zona-icon hover-img">
+            </a>
+        </div>
+        <div class="main-links">
+            <a href="../index.html" class="nav-item" data-key="home">home</a>
+            <a href="../Gallery/Gallery.html" class="nav-item" data-key="gallery">gallery</a>
+            <a href="../Bio/Bio.html" class="nav-item" data-key="bio">bio</a>
+            <a href="Contact.html" class="nav-item" data-key="contact">contact</a>
+        </div>
+        <div class="icons">
+            <a href="https://instagram.com/zona.sector" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zona.sector54@gmail.com" target="_blank"><i
+                    class="fa-regular fa-envelope"></i></a>
+            <button class="langToggle">EN</button>
+        </div>
+    </nav>
+
+    <div class="contact-section section">
+        <h1 class="section-title" data-key="contactUs">CONTACT US</h1>
+        <form id="contactForm" action="https://formsubmit.co/zukalazashvili1999@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <div class="input-group">
+                <input type="text" id="name" name="name" data-placeholder="namePlaceholder" placeholder="First Name">
+                <small class="error"></small>
+            </div>
+            <div class="input-group">
+                <input type="text" id="surname" name="surname" data-placeholder="surnamePlaceholder"
+                    placeholder="Last Name">
+                <small class="error"></small>
+            </div>
+            <div class="input-group">
+                <input type="text" id="email" name="email" data-placeholder="emailPlaceholder" placeholder="Email">
+                <small class="error"></small>
+            </div>
+            <div class="input-group">
+                <textarea id="message" name="message" data-placeholder="msgPlaceholder"
+                    placeholder="Your message"></textarea>
+                <small class="error"></small>
+            </div>
+            <button type="submit" class="send-btn" id="sendBtn">
+                <span class="btn-text" data-key="sendBtn">SEND MESSAGE</span>
+                <span class="btn-loader"></span>
+            </button>
+        </form>
+
+        <div id="successMessage" style="display:none; color:white; text-align:center; padding: 20px;">
+            <h2 data-key="successMsg">Sent successfully. <br> Expect a reply from us soon.</h2>
+        </div>
+    </div>
+
+    <script>
+        // 1. LANGUAGE LOGIC
+        const toggleBtns = document.querySelectorAll(".langToggle");
+        const translations = {
+            en: {
+                home: "home",
+                gallery: "gallery",
+                bio: "bio",
+                contact: "contact",
+
+                contactUs: "CONTACT US",
+                sendBtn: "SEND MESSAGE",
+
+                namePlaceholder: "First Name",
+                surnamePlaceholder: "Last Name",
+                emailPlaceholder: "Email",
+                msgPlaceholder: "Your message",
+
+                successMsg: "Sent successfully. <br> Expect a reply from us soon.",
+
+                nameError: "Name must be at least 2 characters",
+                surnameError: "Surname must be at least 2 characters",
+                emailError: "Enter a valid email address",
+                messageError: "Message must be at least 10 characters",
+
+                sending: "SENDING...",
+                sendFailed: "Something went wrong. Try again."
+            },
+
+            ge: {
+                home: "მთავარი",
+                gallery: "გალერეა",
+                bio: "ბიო",
+                contact: "კონტაქტი",
+
+                contactUs: "კონტაქტი",
+                sendBtn: "გაგზავნა",
+
+                namePlaceholder: "სახელი",
+                surnamePlaceholder: "გვარი",
+                emailPlaceholder: "ელ-ფოსტა",
+                msgPlaceholder: "თქვენი შეტყობინება",
+
+                successMsg: "ფორმა წარმატებით გაიგზავნა. <br> მალე გიპასუხებთ.",
+
+                nameError: "სახელი უნდა შეიცავდეს მინიმუმ 2 სიმბოლოს",
+                surnameError: "გვარი უნდა შეიცავდეს მინიმუმ 2 სიმბოლოს",
+                emailError: "გთხოვთ, შეიყვანოთ სწორი ელ-ფოსტა",
+                messageError: "შეტყობინება უნდა შეიცავდეს მინიმუმ 10 სიმბოლოს",
+
+                sending: "იგზავნება...",
+                sendFailed: "დაფიქსირდა შეცდომა. სცადეთ თავიდან."
+            }
+        };
+
+        let currentLang = localStorage.getItem("lang") || "en";
+
+        function updateText(lang) {
+            document.querySelectorAll("[data-key]").forEach(el => {
+                const key = el.getAttribute("data-key");
+                if (translations[lang][key]) el.innerHTML = translations[lang][key];
+            });
+            document.querySelectorAll("[data-placeholder]").forEach(el => {
+                const key = el.getAttribute("data-placeholder");
+                if (translations[lang][key]) el.placeholder = translations[lang][key];
+            });
+
+            if (lang === "ge") document.documentElement.classList.add("lang-ge");
+            else document.documentElement.classList.remove("lang-ge");
+
+            localStorage.setItem("lang", lang);
+            toggleBtns.forEach(btn => btn.innerText = lang === "en" ? "EN" : "GE");
+            currentLang = lang;
+        }
+
+        toggleBtns.forEach(btn => btn.addEventListener("click", () => {
+            currentLang = currentLang === "en" ? "ge" : "en";
+            updateText(currentLang);
+        }));
+
+        updateText(currentLang);
+
+        // 2. FORM AND BURGER LOGIC
+        const form = document.getElementById("contactForm");
+        const sendBtn = document.getElementById("sendBtn");
+        const btnText = sendBtn.querySelector(".btn-text");
+        const burger = document.getElementById("burger");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        burger.addEventListener("click", () => {
+            burger.classList.toggle("open");
+            mobileMenu.classList.toggle("open");
+        });
+
+        mobileMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                burger.classList.remove("open");
+                mobileMenu.classList.remove("open");
+            });
+        });
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            let valid = true;
+            clearErrors();
+
+            const name = document.getElementById("name");
+            const surname = document.getElementById("surname");
+            const email = document.getElementById("email");
+            const message = document.getElementById("message");
+
+            if (name.value.trim().length < 2) {
+                setError(name, translations[currentLang].nameError);
+                valid = false;
+            }
+
+            if (surname.value.trim().length < 2) {
+                setError(surname, translations[currentLang].surnameError);
+                valid = false;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email.value.trim())) {
+                setError(email, translations[currentLang].emailError);
+                valid = false;
+            }
+
+            if (message.value.trim().length < 10) {
+                setError(message, translations[currentLang].messageError);
+                valid = false;
+            }
+
+            if (!valid) return;
+
+            sendBtn.classList.add("loading");
+            sendBtn.disabled = true;
+            btnText.textContent = translations[currentLang].sending;
+
+            try {
+                const res = await fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(form),
+                    headers: {
+                        Accept: "application/json"
+                    }
+                });
+
+                if (res.ok) {
+                    form.style.display = "none";
+                    document.getElementById("successMessage").style.display = "block";
+                } else {
+                    throw new Error("Send failed");
+                }
+            } catch (error) {
+                sendBtn.classList.remove("loading");
+                sendBtn.disabled = false;
+
+                btnText.textContent = translations[currentLang].sendBtn;
+
+                alert(translations[currentLang].sendFailed);
+            }
+        });
+
+        function setError(input, msg) { const parent = input.parentElement; const error = parent.querySelector(".error"); error.innerText = msg; input.style.borderColor = "#ff4d4d"; }
+        function clearErrors() { document.querySelectorAll(".error").forEach(el => el.innerText = ""); document.querySelectorAll("input, textarea").forEach(el => { el.style.borderColor = "rgba(255,255,255,0.15)"; }); }
+    </script>
+</body>
+
+</html>
